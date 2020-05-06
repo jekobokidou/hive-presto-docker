@@ -4,7 +4,7 @@ ENV http_proxy http://pnpxyu:3128
 ENV https_proxy https://pnpxyu:3128
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-    jessie-backports  openjdk-8-jre-headless ca-certificates-java && \
+    openjdk-8-jre-headless ca-certificates-java && \
     apt-get install -y openjdk-8-jdk --fix-missing
 
 RUN apt-get install unzip -y && \
