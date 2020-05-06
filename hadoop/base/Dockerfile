@@ -6,6 +6,7 @@ ENV https_proxy https://pnpxyu:3128
 RUN echo "deb http://security.debian.org/debian-security stretch/updates main" >> /etc/apt/sources.list                                                   
 RUN mkdir -p /usr/share/man/man1 && \
     apt-get update -y && \
+    apt-get install -t jessie-backports  openjdk-8-jre-headless ca-certificates-java && \
     apt-get install -y openjdk-8-jdk
 
 RUN apt-get install unzip -y && \
