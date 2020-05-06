@@ -3,8 +3,15 @@ FROM debian:9
 ENV http_proxy http://pnpxyu:3128
 ENV https_proxy https://pnpxyu:3128
 
+RUN echo "deb http://security.debian.org/debian-security stretch/updates main" >> /etc/apt/sources.list                                                   
+RUN mkdir -p /usr/share/man/man1 && \
+    apt-get update -y && \
+    apt-get install -y openjdk-8-jdk
+
+RUN apt-get install unzip -y && \
+    apt-get autoremove -y
+    
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-      openjdk-8-jdk \
       net-tools \
       curl \
       netcat \
